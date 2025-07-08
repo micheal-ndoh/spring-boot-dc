@@ -1,0 +1,41 @@
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    permissions:
+      packages: write
+      contents: read
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Set environment variables
+        run: |
+          REPO_OWNER=$(echo "${GITHUB_REPOSITORY}" | cut -d '/' -f 1 | tr '[:upper:]' '[:lower:]')
+          REPO_NAME=$(echo "${GITHUB_REPOSITORY}" | cut -d '/' -f 2 | tr '[:upper:]' '[:lower:]')
+          echo "REPO_OWNER=${REPO_OWNER}" >> $GITHUB_ENV
+          echo "REPO_NAME=${REPO_NAME}" >> $GITHUB_ENV
+
+      - name: Login to Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build flight-backend Docker image
+        run: |
+          docker build -t ghcr.io/${{ env.REPO_OWNER }}/${{ env.REPO_NAME }}-:latest .
+          docker tag ghcr.io/${{ env.REPO_OWNER }}/${{ env.REPO_NAME }}-flight-backend:latest ghcr.io/${{ env.REPO_OWNER }}/${{ env.REPO_NAME }}-flight-backend:${{ github.sha }}
+
+      - name: Push flight-backend Docker image
+        run: |
+          docker push ghcr.io/${{ env.REPO_OWNER }}/${{ env.REPO_NAME }}-flight-backend:latest
+          docker push ghcr.io/${{ env.REPO_OWNER }}/${{ env.REPO_NAME }}-flight-backend:${{ github.sha }}
