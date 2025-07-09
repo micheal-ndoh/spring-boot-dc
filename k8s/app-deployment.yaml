@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flight-reservation-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flight-reservation-api
+  template:
+    metadata:
+      labels:
+        app: flight-reservation-api
+    spec:
+      containers:
+      - name: flight-reservation-api
+        image: yourdockerhubusername/flight-reservation-api:latest
+        ports:
+        - containerPort: 8080
+        env:
+        - name: SPRING_DATASOURCE_URL
+          value: jdbc:postgresql://postgres:5432/flightdb
+        - name: SPRING_DATASOURCE_USERNAME
+          value: mick
+        - name: SPRING_DATASOURCE_PASSWORD
+          value: password
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: flight-reservation-api
+spec:
+  type: NodePort
+  ports:
+    - port: 8080
+      targetPort: 8080
+      nodePort: 30080
+  selector:
+    app: flight-reservation-api
