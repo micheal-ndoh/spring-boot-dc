@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: flight-reservation-api
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: flight-reservation-api
@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: flight-reservation-api
-        image: yourdockerhubusername/flight-reservation-api:latest
+        image: ghcr.io/micheal-ndoh/spring-boot-dc:latest
         ports:
         - containerPort: 8080
         env:
