@@ -5,8 +5,11 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -55,5 +58,37 @@ public class TicketController {
         }
         logger.info("Found {} tickets for search", result.size());
         return result;
+    }
+
+    @PutMapping("/{id}")
+    public Ticket updateTicket(@PathVariable Long id, @RequestBody Ticket ticket) {
+        logger.info("Updating ticket with ID: {}", id);
+        return ticketRepository.findById(id)
+                .map(existing -> {
+                    existing.setPassengerName(ticket.getPassengerName());
+                    existing.setAddress(ticket.getAddress());
+                    existing.setDestinationAddress(ticket.getDestinationAddress());
+                    existing.setKickoffAddress(ticket.getKickoffAddress());
+                    existing.setFlightDate(ticket.getFlightDate());
+                    Ticket updated = ticketRepository.save(existing);
+                    logger.info("Ticket updated with ID: {}", updated.getId());
+                    return updated;
+                })
+                .orElseThrow(() -> {
+                    logger.warn("Ticket with ID {} not found for update", id);
+                    return new RuntimeException("Ticket not found");
+                });
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteTicket(@PathVariable Long id) {
+        logger.info("Deleting ticket with ID: {}", id);
+        if (ticketRepository.existsById(id)) {
+            ticketRepository.deleteById(id);
+            logger.info("Ticket deleted with ID: {}", id);
+        } else {
+            logger.warn("Ticket with ID {} not found for deletion", id);
+            throw new RuntimeException("Ticket not found");
+        }
     }
 }
