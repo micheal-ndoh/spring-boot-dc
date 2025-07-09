@@ -2,6 +2,8 @@ package com.flightbooking.flight_reservation_api;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,17 +16,25 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/tickets")
 public class TicketController {
 
+    private static final Logger logger = LoggerFactory.getLogger(TicketController.class);
+
     @Autowired
     private TicketRepository ticketRepository;
 
     @PostMapping
     public Ticket createTicket(@RequestBody Ticket ticket) {
-        return ticketRepository.save(ticket);
+        logger.info("Creating ticket for passenger: {}", ticket.getPassengerName());
+        Ticket saved = ticketRepository.save(ticket);
+        logger.info("Ticket created with ID: {}", saved.getId());
+        return saved;
     }
 
     @GetMapping
     public List<Ticket> getAllTickets() {
-        return ticketRepository.findAll();
+        logger.info("Retrieving all tickets");
+        List<Ticket> tickets = ticketRepository.findAll();
+        logger.info("Found {} tickets", tickets.size());
+        return tickets;
     }
 
     @GetMapping("/search")
@@ -32,14 +42,18 @@ public class TicketController {
             @RequestParam(required = false) String address,
             @RequestParam(required = false) String destinationAddress,
             @RequestParam(required = false) String kickoffAddress) {
+        logger.info("Searching tickets with address: {}, destinationAddress: {}, kickoffAddress: {}", address, destinationAddress, kickoffAddress);
+        List<Ticket> result;
         if (address != null) {
-            return ticketRepository.findByAddressContainingIgnoreCase(address);
+            result = ticketRepository.findByAddressContainingIgnoreCase(address);
         } else if (destinationAddress != null) {
-            return ticketRepository.findByDestinationAddressContainingIgnoreCase(destinationAddress);
+            result = ticketRepository.findByDestinationAddressContainingIgnoreCase(destinationAddress);
         } else if (kickoffAddress != null) {
-            return ticketRepository.findByKickoffAddressContainingIgnoreCase(kickoffAddress);
+            result = ticketRepository.findByKickoffAddressContainingIgnoreCase(kickoffAddress);
         } else {
-            return ticketRepository.findAll();
+            result = ticketRepository.findAll();
         }
+        logger.info("Found {} tickets for search", result.size());
+        return result;
     }
 }
