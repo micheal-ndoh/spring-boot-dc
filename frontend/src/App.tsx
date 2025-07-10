@@ -4,28 +4,35 @@ import "./App.css";
 import React, { useEffect, useState } from "react";
 import { TicketControllerApi, Configuration } from "./react-api-client";
 
+// Get API URL from environment variable or use localhost for development
+const API_BASE_URL = process.env.REACT_APP_API_URL || "http://localhost:8080";
+
 const api = new TicketControllerApi(
-  new Configuration({ basePath: "http://localhost:8080" })
+  new Configuration({ basePath: API_BASE_URL })
 );
 
 function App() {
   const [tickets, setTickets] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [editingTicket, setEditingTicket] = useState<any>(null);
-  const [showDeleteConfirm, setShowDeleteConfirm] = useState<number | null>(null);
-  const [showUpdateConfirm, setShowUpdateConfirm] = useState<number | null>(null);
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState<number | null>(
+    null
+  );
+  const [showUpdateConfirm, setShowUpdateConfirm] = useState<number | null>(
+    null
+  );
   const [darkMode, setDarkMode] = useState(false);
   const [searchForm, setSearchForm] = useState({
-    address: '',
-    destinationAddress: '',
-    kickoffAddress: '',
+    address: "",
+    destinationAddress: "",
+    kickoffAddress: "",
   });
   const [form, setForm] = useState({
-    passengerName: '',
-    address: '',
-    destinationAddress: '',
-    kickoffAddress: '',
-    flightDate: '',
+    passengerName: "",
+    address: "",
+    destinationAddress: "",
+    kickoffAddress: "",
+    flightDate: "",
   });
 
   useEffect(() => {
@@ -35,9 +42,9 @@ function App() {
   useEffect(() => {
     // Apply dark mode class to body
     if (darkMode) {
-      document.body.classList.add('dark-mode');
+      document.body.classList.add("dark-mode");
     } else {
-      document.body.classList.remove('dark-mode');
+      document.body.classList.remove("dark-mode");
     }
   }, [darkMode]);
 
@@ -47,7 +54,7 @@ function App() {
       const ticketsData = await api.getAllTickets();
       setTickets(ticketsData);
     } catch (error) {
-      console.error('Error loading tickets:', error);
+      console.error("Error loading tickets:", error);
     } finally {
       setLoading(false);
     }
@@ -67,13 +74,15 @@ function App() {
       setLoading(true);
       const searchParams: any = {};
       if (searchForm.address) searchParams.address = searchForm.address;
-      if (searchForm.destinationAddress) searchParams.destinationAddress = searchForm.destinationAddress;
-      if (searchForm.kickoffAddress) searchParams.kickoffAddress = searchForm.kickoffAddress;
-      
+      if (searchForm.destinationAddress)
+        searchParams.destinationAddress = searchForm.destinationAddress;
+      if (searchForm.kickoffAddress)
+        searchParams.kickoffAddress = searchForm.kickoffAddress;
+
       const ticketsData = await api.searchTickets(searchParams);
       setTickets(ticketsData);
     } catch (error) {
-      console.error('Error searching tickets:', error);
+      console.error("Error searching tickets:", error);
     } finally {
       setLoading(false);
     }
@@ -83,7 +92,13 @@ function App() {
     e.preventDefault();
     try {
       // Do not send id field
-      const { passengerName, address, destinationAddress, kickoffAddress, flightDate } = form;
+      const {
+        passengerName,
+        address,
+        destinationAddress,
+        kickoffAddress,
+        flightDate,
+      } = form;
       await api.createTicket({
         ticket: {
           passengerName,
@@ -93,17 +108,23 @@ function App() {
           flightDate: new Date(flightDate),
         },
       });
-      setForm({ passengerName: '', address: '', destinationAddress: '', kickoffAddress: '', flightDate: '' });
+      setForm({
+        passengerName: "",
+        address: "",
+        destinationAddress: "",
+        kickoffAddress: "",
+        flightDate: "",
+      });
       await loadTickets();
     } catch (error) {
-      console.error('Error creating ticket:', error);
+      console.error("Error creating ticket:", error);
     }
   };
 
   const startEdit = (ticket: any) => {
     setEditingTicket({
       ...ticket,
-      flightDate: new Date(ticket.flightDate).toISOString().split('T')[0]
+      flightDate: new Date(ticket.flightDate).toISOString().split("T")[0],
     });
   };
 
@@ -121,7 +142,7 @@ function App() {
 
   const handleUpdate = async () => {
     if (!editingTicket) return;
-    
+
     try {
       await api.updateTicket({
         id: editingTicket.id,
@@ -137,7 +158,7 @@ function App() {
       setShowUpdateConfirm(null);
       await loadTickets();
     } catch (error) {
-      console.error('Error updating ticket:', error);
+      console.error("Error updating ticket:", error);
     }
   };
 
@@ -147,13 +168,13 @@ function App() {
 
   const handleDelete = async () => {
     if (!showDeleteConfirm) return;
-    
+
     try {
       await api.deleteTicket({ id: showDeleteConfirm });
       setShowDeleteConfirm(null);
       await loadTickets();
     } catch (error) {
-      console.error('Error deleting ticket:', error);
+      console.error("Error deleting ticket:", error);
     }
   };
 
@@ -166,7 +187,7 @@ function App() {
   };
 
   return (
-    <div className={`App ${darkMode ? 'dark-mode' : ''}`}>
+    <div className={`App ${darkMode ? "dark-mode" : ""}`}>
       {/* Animated Airplanes */}
       <div className="airplane">✈️</div>
       <div className="airplane">🛩️</div>
@@ -178,10 +199,10 @@ function App() {
       {/* Header with 3D Animation and Dark Mode Toggle */}
       <div className="header">
         <h1>✈️ Flight Ticket Manager</h1>
-        <button 
-          className={`dark-mode-toggle ${darkMode ? 'active' : ''}`}
+        <button
+          className={`dark-mode-toggle ${darkMode ? "active" : ""}`}
           onClick={toggleDarkMode}
-          title={darkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+          title={darkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
         >
           <div className="toggle-icon">
             <div className="sun-icon">☀️</div>
@@ -222,15 +243,18 @@ function App() {
               />
             </div>
           </div>
-          <div style={{ display: 'flex', gap: '10px' }}>
+          <div style={{ display: "flex", gap: "10px" }}>
             <button type="submit" className="submit-btn">
               🔍 Search
             </button>
-            <button 
-              type="button" 
+            <button
+              type="button"
               className="submit-btn"
               onClick={loadTickets}
-              style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.2) 100%)' }}
+              style={{
+                background:
+                  "linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.2) 100%)",
+              }}
             >
               🔄 Reset
             </button>
@@ -357,22 +381,29 @@ function App() {
                         required
                       />
                     </div>
-                    <div style={{ display: 'flex', gap: '10px', marginTop: '15px' }}>
-                      <button 
-                        type="button" 
+                    <div
+                      style={{
+                        display: "flex",
+                        gap: "10px",
+                        marginTop: "15px",
+                      }}
+                    >
+                      <button
+                        type="button"
                         className="submit-btn"
                         onClick={() => confirmUpdate(ticket.id)}
                         style={{ flex: 1 }}
                       >
                         ✅ Save
                       </button>
-                      <button 
-                        type="button" 
+                      <button
+                        type="button"
                         className="submit-btn"
                         onClick={cancelEdit}
-                        style={{ 
+                        style={{
                           flex: 1,
-                          background: 'linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.2) 100%)'
+                          background:
+                            "linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.2) 100%)",
                         }}
                       >
                         ❌ Cancel
@@ -384,7 +415,9 @@ function App() {
                   <div className="ticket-info">
                     <div className="ticket-field">
                       <span className="ticket-label">Passenger:</span>
-                      <span className="ticket-value">{ticket.passengerName}</span>
+                      <span className="ticket-value">
+                        {ticket.passengerName}
+                      </span>
                     </div>
                     <div className="ticket-field">
                       <span className="ticket-label">Address:</span>
@@ -392,33 +425,46 @@ function App() {
                     </div>
                     <div className="ticket-field">
                       <span className="ticket-label">Destination:</span>
-                      <span className="ticket-value">{ticket.destinationAddress}</span>
+                      <span className="ticket-value">
+                        {ticket.destinationAddress}
+                      </span>
                     </div>
                     <div className="ticket-field">
                       <span className="ticket-label">Kickoff:</span>
-                      <span className="ticket-value">{ticket.kickoffAddress}</span>
+                      <span className="ticket-value">
+                        {ticket.kickoffAddress}
+                      </span>
                     </div>
                     <div className="ticket-field">
                       <span className="ticket-label">Flight Date:</span>
-                      <span className="ticket-value">{formatDate(ticket.flightDate)}</span>
+                      <span className="ticket-value">
+                        {formatDate(ticket.flightDate)}
+                      </span>
                     </div>
-                    <div style={{ display: 'flex', gap: '10px', marginTop: '15px' }}>
-                      <button 
-                        type="button" 
+                    <div
+                      style={{
+                        display: "flex",
+                        gap: "10px",
+                        marginTop: "15px",
+                      }}
+                    >
+                      <button
+                        type="button"
                         className="submit-btn"
                         onClick={() => startEdit(ticket)}
-                        style={{ flex: 1, fontSize: '14px' }}
+                        style={{ flex: 1, fontSize: "14px" }}
                       >
                         ✏️ Edit
                       </button>
-                      <button 
-                        type="button" 
+                      <button
+                        type="button"
                         className="submit-btn"
                         onClick={() => confirmDelete(ticket.id)}
-                        style={{ 
-                          flex: 1, 
-                          fontSize: '14px',
-                          background: 'linear-gradient(135deg, rgba(255,100,100,0.3) 0%, rgba(255,100,100,0.2) 100%)'
+                        style={{
+                          flex: 1,
+                          fontSize: "14px",
+                          background:
+                            "linear-gradient(135deg, rgba(255,100,100,0.3) 0%, rgba(255,100,100,0.2) 100%)",
                         }}
                       >
                         🗑️ Delete
@@ -438,20 +484,21 @@ function App() {
           <div className="modal">
             <h3>Confirm Update</h3>
             <p>Are you sure you want to update this ticket?</p>
-            <div style={{ display: 'flex', gap: '10px', marginTop: '20px' }}>
-              <button 
+            <div style={{ display: "flex", gap: "10px", marginTop: "20px" }}>
+              <button
                 className="submit-btn"
                 onClick={handleUpdate}
                 style={{ flex: 1 }}
               >
                 ✅ Confirm Update
               </button>
-              <button 
+              <button
                 className="submit-btn"
                 onClick={() => setShowUpdateConfirm(null)}
-                style={{ 
+                style={{
                   flex: 1,
-                  background: 'linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.2) 100%)'
+                  background:
+                    "linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.2) 100%)",
                 }}
               >
                 ❌ Cancel
@@ -465,24 +512,29 @@ function App() {
         <div className="modal-overlay">
           <div className="modal">
             <h3>Confirm Delete</h3>
-            <p>Are you sure you want to delete this ticket? This action cannot be undone.</p>
-            <div style={{ display: 'flex', gap: '10px', marginTop: '20px' }}>
-              <button 
+            <p>
+              Are you sure you want to delete this ticket? This action cannot be
+              undone.
+            </p>
+            <div style={{ display: "flex", gap: "10px", marginTop: "20px" }}>
+              <button
                 className="submit-btn"
                 onClick={handleDelete}
-                style={{ 
+                style={{
                   flex: 1,
-                  background: 'linear-gradient(135deg, rgba(255,100,100,0.3) 0%, rgba(255,100,100,0.2) 100%)'
+                  background:
+                    "linear-gradient(135deg, rgba(255,100,100,0.3) 0%, rgba(255,100,100,0.2) 100%)",
                 }}
               >
                 🗑️ Confirm Delete
               </button>
-              <button 
+              <button
                 className="submit-btn"
                 onClick={() => setShowDeleteConfirm(null)}
-                style={{ 
+                style={{
                   flex: 1,
-                  background: 'linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.2) 100%)'
+                  background:
+                    "linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.2) 100%)",
                 }}
               >
                 ❌ Cancel
