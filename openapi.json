@@ -1,0 +1,152 @@
+{
+  "openapi": "3.0.1",
+  "info": { "title": "OpenAPI definition", "version": "v0" },
+  "servers": [
+    { "url": "http://localhost:8080", "description": "Generated server url" }
+  ],
+  "paths": {
+    "/api/tickets/{id}": {
+      "put": {
+        "tags": ["ticket-controller"],
+        "operationId": "updateTicket",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer", "format": "int64" }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/Ticket" }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": { "schema": { "$ref": "#/components/schemas/Ticket" } }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": ["ticket-controller"],
+        "operationId": "deleteTicket",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer", "format": "int64" }
+          }
+        ],
+        "responses": { "200": { "description": "OK" } }
+      }
+    },
+    "/api/tickets": {
+      "get": {
+        "tags": ["ticket-controller"],
+        "operationId": "getAllTickets",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/Ticket" }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["ticket-controller"],
+        "operationId": "createTicket",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/Ticket" }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": { "schema": { "$ref": "#/components/schemas/Ticket" } }
+            }
+          }
+        }
+      }
+    },
+    "/api/tickets/search": {
+      "get": {
+        "tags": ["ticket-controller"],
+        "operationId": "searchTickets",
+        "parameters": [
+          {
+            "name": "address",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "destinationAddress",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "kickoffAddress",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/Ticket" }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Ticket": {
+        "required": [
+          "address",
+          "destinationAddress",
+          "flightDate",
+          "kickoffAddress",
+          "passengerName"
+        ],
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer", "format": "int64" },
+          "passengerName": { "type": "string" },
+          "address": { "type": "string" },
+          "destinationAddress": { "type": "string" },
+          "kickoffAddress": { "type": "string" },
+          "flightDate": { "type": "string", "format": "date" }
+        }
+      }
+    }
+  }
+}
