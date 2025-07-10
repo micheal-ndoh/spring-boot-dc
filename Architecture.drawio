@@ -1,0 +1,177 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/26.0.9 Chrome/128.0.6613.186 Electron/32.2.5 Safari/537.36" version="26.0.9">
+  <diagram name="Page-1" id="gEpgBUczUSC0jCeVyYqu">
+    <mxGraphModel dx="3328" dy="835" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" background="none" math="0" shadow="1" adaptiveColors="auto">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="JI-kJ0MNj-MwxjxUuRtc-19" value="" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;fontStyle=0" vertex="1" parent="1">
+          <mxGeometry x="-100" y="420" width="695" height="360" as="geometry" />
+        </mxCell>
+        <mxCell id="JI-kJ0MNj-MwxjxUuRtc-20" value="" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;fontStyle=0;strokeWidth=3;strokeColor=#FFFF00;" vertex="1" parent="1">
+          <mxGeometry x="511" y="200" width="219" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="JI-kJ0MNj-MwxjxUuRtc-13" value="" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;fontStyle=0;strokeColor=#80FF00;" vertex="1" parent="1">
+          <mxGeometry x="300" y="520" width="165" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="JI-kJ0MNj-MwxjxUuRtc-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.436;entryY=-0.033;entryDx=0;entryDy=0;fontSize=16;fontStyle=0;entryPerimeter=0;strokeWidth=2;strokeColor=#FFFF00;endSize=15;" edge="1" parent="1" source="JI-kJ0MNj-MwxjxUuRtc-2" target="JI-kJ0MNj-MwxjxUuRtc-25">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="470" y="180" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JI-kJ0MNj-MwxjxUuRtc-43" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;strokeColor=#FF3333;strokeWidth=2;endSize=15;" edge="1" parent="1" source="JI-kJ0MNj-MwxjxUuRtc-2" target="JI-kJ0MNj-MwxjxUuRtc-8">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-10" y="200" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JI-kJ0MNj-MwxjxUuRtc-51" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#00FFFF;dashed=1;dashPattern=1 4;endSize=15;strokeWidth=2;" edge="1" parent="1" source="JI-kJ0MNj-MwxjxUuRtc-2" target="JI-kJ0MNj-MwxjxUuRtc-14">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="220" y="708" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JI-kJ0MNj-MwxjxUuRtc-2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#008a00;fontColor=#ffffff;strokeColor=#005700;fontSize=16;fontStyle=0" vertex="1" parent="1">
+          <mxGeometry x="30" y="140" width="240" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="JI-kJ0MNj-MwxjxUuRtc-4" value="" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;fontStyle=0;strokeColor=#CCCC00;" vertex="1" parent="1">
+          <mxGeometry x="540" y="234" width="160" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="JI-kJ0MNj-MwxjxUuRtc-5" value="application.properties" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=0" vertex="1" parent="1">
+          <mxGeometry x="535" y="244" width="165" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="JI-kJ0MNj-MwxjxUuRtc-7" value="Main Entry Point" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=0" vertex="1" parent="1">
+          <mxGeometry x="80" y="155" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="JI-kJ0MNj-MwxjxUuRtc-8" value="" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;fontStyle=0;strokeColor=#FF3333;" vertex="1" parent="1">
+          <mxGeometry x="-90" y="630" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="JI-kJ0MNj-MwxjxUuRtc-9" value="Ticket(JPA Entity)" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=0" vertex="1" parent="1">
+          <mxGeometry x="-90" y="645" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="JI-kJ0MNj-MwxjxUuRtc-10" value="" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;fontStyle=0;strokeColor=#B266FF;" vertex="1" parent="1">
+          <mxGeometry x="40" y="520" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="JI-kJ0MNj-MwxjxUuRtc-11" value="Logging(SLF4J" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=0" vertex="1" parent="1">
+          <mxGeometry x="50" y="535" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="JI-kJ0MNj-MwxjxUuRtc-45" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="JI-kJ0MNj-MwxjxUuRtc-12" target="JI-kJ0MNj-MwxjxUuRtc-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JI-kJ0MNj-MwxjxUuRtc-12" value="TicketController(REST API)" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=0" vertex="1" parent="1">
+          <mxGeometry x="308" y="530" width="150" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="JI-kJ0MNj-MwxjxUuRtc-52" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=0.456;entryY=1;entryDx=0;entryDy=0;strokeColor=#00FFFF;entryPerimeter=0;" edge="1" parent="1" source="JI-kJ0MNj-MwxjxUuRtc-14" target="JI-kJ0MNj-MwxjxUuRtc-8">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="390" y="740" />
+              <mxPoint x="-17" y="740" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JI-kJ0MNj-MwxjxUuRtc-14" value="" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;fontStyle=0;strokeColor=#00FFFF;" vertex="1" parent="1">
+          <mxGeometry x="390" y="680" width="190" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="JI-kJ0MNj-MwxjxUuRtc-31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="JI-kJ0MNj-MwxjxUuRtc-15" target="JI-kJ0MNj-MwxjxUuRtc-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JI-kJ0MNj-MwxjxUuRtc-15" value="TicketRepository(Sring data JPA" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=0" vertex="1" parent="1">
+          <mxGeometry x="430" y="690" width="136" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="JI-kJ0MNj-MwxjxUuRtc-16" value="" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;fontStyle=0;strokeColor=#FF00FF;" vertex="1" parent="1">
+          <mxGeometry x="730" y="585" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="JI-kJ0MNj-MwxjxUuRtc-17" value="Postgres SQL Databae" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=0" vertex="1" parent="1">
+          <mxGeometry x="735" y="595" width="150" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="JI-kJ0MNj-MwxjxUuRtc-21" value="&lt;div&gt;MARC&lt;/div&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fontSize=16;fontStyle=0;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="240" y="240" width="30" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="JI-kJ0MNj-MwxjxUuRtc-22" value="Spring Boot Application" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=0" vertex="1" parent="1">
+          <mxGeometry x="160" y="440" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="JI-kJ0MNj-MwxjxUuRtc-25" value="Configuration" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=0" vertex="1" parent="1">
+          <mxGeometry x="540" y="200" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="JI-kJ0MNj-MwxjxUuRtc-26" value="&lt;section style=&quot;scrollbar-color: var(--vscode-scrollbarSlider-background,#424242) var(--vscode-editor-background,#1e1e1e); border-radius: 4px; line-height: 19.5px; margin: 6px 0px; position: relative; scroll-margin-bottom: 40px; scroll-margin-top: 40px; color: rgb(216, 222, 233); font-family: system-ui, Ubuntu, &amp;quot;Droid Sans&amp;quot;, sans-serif; text-align: start; background-color: rgb(20, 20, 20);&quot; data-section-index=&quot;18&quot; data-markdown-raw=&quot;#### **Sequence Recap**&lt;br/&gt;1. **Client** → POST `/api/tickets` with JSON body&lt;br/&gt;2. **TicketController** receives and validates the request&lt;br/&gt;3. **TicketRepository** saves the ticket to the database&lt;br/&gt;4. **PostgreSQL** stores the new ticket&lt;br/&gt;5. **Controller** logs the action&lt;br/&gt;6. **Client** receives the created ticket as a response&quot; class=&quot;markdown-section&quot; id=&quot;markdown-section-e989c588-750b-4afe-abfc-2d4d699b621f-18&quot;&gt;&lt;h4 style=&quot;scrollbar-color: var(--vscode-scrollbarSlider-background,#424242) var(--vscode-editor-background,#1e1e1e); line-height: 1.25; margin-bottom: 8px; margin-top: 16px;&quot;&gt;&lt;span style=&quot;scrollbar-color: var(--vscode-scrollbarSlider-background,#424242) var(--vscode-editor-background,#1e1e1e);&quot; class=&quot;markdown-bold-text&quot;&gt;&lt;span style=&quot;scrollbar-color: var(--vscode-scrollbarSlider-background,#424242) var(--vscode-editor-background,#1e1e1e);&quot;&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;Flow Sequence&lt;/font&gt;&lt;/span&gt;&lt;/span&gt;&lt;/h4&gt;&lt;ol style=&quot;scrollbar-color: var(--vscode-scrollbarSlider-background,#424242) var(--vscode-editor-background,#1e1e1e); margin: 0px 0px 0px 16px; padding: 0px;&quot;&gt;&lt;li style=&quot;scrollbar-color: var(--vscode-scrollbarSlider-background,#424242) var(--vscode-editor-background,#1e1e1e); margin-bottom: 2px !important; margin-top: 2px !important; margin-left: 0px; padding-top: 2px; padding-bottom: 2px; list-style-type: decimal;&quot; value=&quot;1&quot; data-indent=&quot;0&quot;&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;&lt;span style=&quot;scrollbar-color: var(--vscode-scrollbarSlider-background,#424242) var(--vscode-editor-background,#1e1e1e); font-weight: 600;&quot; class=&quot;markdown-bold-text&quot;&gt;Client&lt;/span&gt;&lt;span style=&quot;scrollbar-color: var(--vscode-scrollbarSlider-background,#424242) var(--vscode-editor-background,#1e1e1e);&quot;&gt;&amp;nbsp;→ POST&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;scrollbar-color: var(--vscode-scrollbarSlider-background,#424242) var(--vscode-editor-background,#1e1e1e); line-height: 1.4; background-color: var(--vscode-textCodeBlock-background); border-radius: 4px; color: var(--vscode-textLink-foreground); font-family: &amp;quot;Droid Sans Mono&amp;quot;, &amp;quot;monospace&amp;quot;, monospace, Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; padding: 1.5px 3px; transition: 0.1s; border-color: var(--vscode-textLink-foreground); word-break: break-all; cursor: pointer;&quot; class=&quot;markdown-inline-code leading-[1.4]&quot;&gt;&lt;span style=&quot;scrollbar-color: var(--vscode-scrollbarSlider-background,#424242) var(--vscode-editor-background,#1e1e1e);&quot;&gt;/api/tickets&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;scrollbar-color: var(--vscode-scrollbarSlider-background,#424242) var(--vscode-editor-background,#1e1e1e);&quot;&gt;&amp;nbsp;with JSON body&lt;/span&gt;&lt;/font&gt;&lt;/li&gt;&lt;/ol&gt;&lt;ol style=&quot;scrollbar-color: var(--vscode-scrollbarSlider-background,#424242) var(--vscode-editor-background,#1e1e1e); margin: 0px 0px 0px 16px; padding: 0px;&quot;&gt;&lt;li style=&quot;scrollbar-color: var(--vscode-scrollbarSlider-background,#424242) var(--vscode-editor-background,#1e1e1e); margin-bottom: 2px !important; margin-top: 2px !important; margin-left: 0px; padding-top: 2px; padding-bottom: 2px; list-style-type: decimal;&quot; value=&quot;2&quot; data-indent=&quot;0&quot;&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;&lt;span style=&quot;scrollbar-color: var(--vscode-scrollbarSlider-background,#424242) var(--vscode-editor-background,#1e1e1e); font-weight: 600;&quot; class=&quot;markdown-bold-text&quot;&gt;&lt;span style=&quot;scrollbar-color: var(--vscode-scrollbarSlider-background,#424242) var(--vscode-editor-background,#1e1e1e);&quot;&gt;Ticket&lt;/span&gt;&lt;span style=&quot;scrollbar-color: var(--vscode-scrollbarSlider-background,#424242) var(--vscode-editor-background,#1e1e1e);&quot;&gt;Controller&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;scrollbar-color: var(--vscode-scrollbarSlider-background,#424242) var(--vscode-editor-background,#1e1e1e);&quot;&gt;&amp;nbsp;receives and validates the request&lt;/span&gt;&lt;/font&gt;&lt;/li&gt;&lt;/ol&gt;&lt;ol style=&quot;scrollbar-color: var(--vscode-scrollbarSlider-background,#424242) var(--vscode-editor-background,#1e1e1e); margin: 0px 0px 0px 16px; padding: 0px;&quot;&gt;&lt;li style=&quot;scrollbar-color: var(--vscode-scrollbarSlider-background,#424242) var(--vscode-editor-background,#1e1e1e); margin-bottom: 2px !important; margin-top: 2px !important; margin-left: 0px; padding-top: 2px; padding-bottom: 2px; list-style-type: decimal;&quot; value=&quot;3&quot; data-indent=&quot;0&quot;&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;&lt;span style=&quot;scrollbar-color: var(--vscode-scrollbarSlider-background,#424242) var(--vscode-editor-background,#1e1e1e); font-weight: 600;&quot; class=&quot;markdown-bold-text&quot;&gt;TicketRepository&lt;/span&gt;&lt;span style=&quot;scrollbar-color: var(--vscode-scrollbarSlider-background,#424242) var(--vscode-editor-background,#1e1e1e);&quot;&gt;&amp;nbsp;saves the ticket to the&lt;/span&gt;&lt;span style=&quot;scrollbar-color: var(--vscode-scrollbarSlider-background,#424242) var(--vscode-editor-background,#1e1e1e);&quot;&gt;&amp;nbsp;database&lt;/span&gt;&lt;/font&gt;&lt;/li&gt;&lt;/ol&gt;&lt;ol style=&quot;scrollbar-color: var(--vscode-scrollbarSlider-background,#424242) var(--vscode-editor-background,#1e1e1e); margin: 0px 0px 0px 16px; padding: 0px;&quot;&gt;&lt;li style=&quot;scrollbar-color: var(--vscode-scrollbarSlider-background,#424242) var(--vscode-editor-background,#1e1e1e); margin-bottom: 2px !important; margin-top: 2px !important; margin-left: 0px; padding-top: 2px; padding-bottom: 2px; list-style-type: decimal;&quot; value=&quot;4&quot; data-indent=&quot;0&quot;&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;&lt;span style=&quot;scrollbar-color: var(--vscode-scrollbarSlider-background,#424242) var(--vscode-editor-background,#1e1e1e); font-weight: 600;&quot; class=&quot;markdown-bold-text&quot;&gt;&lt;span style=&quot;scrollbar-color: var(--vscode-scrollbarSlider-background,#424242) var(--vscode-editor-background,#1e1e1e);&quot;&gt;Post&lt;/span&gt;&lt;span style=&quot;scrollbar-color: var(--vscode-scrollbarSlider-background,#424242) var(--vscode-editor-background,#1e1e1e);&quot;&gt;greSQL&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;scrollbar-color: var(--vscode-scrollbarSlider-background,#424242) var(--vscode-editor-background,#1e1e1e);&quot;&gt;&amp;nbsp;stores the new ticket&lt;/span&gt;&lt;/font&gt;&lt;/li&gt;&lt;/ol&gt;&lt;ol style=&quot;scrollbar-color: var(--vscode-scrollbarSlider-background,#424242) var(--vscode-editor-background,#1e1e1e); margin: 0px 0px 0px 16px; padding: 0px;&quot;&gt;&lt;li style=&quot;scrollbar-color: var(--vscode-scrollbarSlider-background,#424242) var(--vscode-editor-background,#1e1e1e); margin-bottom: 2px !important; margin-top: 2px !important; margin-left: 0px; padding-top: 2px; padding-bottom: 2px; list-style-type: decimal;&quot; value=&quot;5&quot; data-indent=&quot;0&quot;&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;&lt;span style=&quot;scrollbar-color: var(--vscode-scrollbarSlider-background,#424242) var(--vscode-editor-background,#1e1e1e); font-weight: 600;&quot; class=&quot;markdown-bold-text&quot;&gt;Controller&lt;/span&gt;&lt;span style=&quot;scrollbar-color: var(--vscode-scrollbarSlider-background,#424242) var(--vscode-editor-background,#1e1e1e);&quot;&gt;&amp;nbsp;logs the action&lt;/span&gt;&lt;/font&gt;&lt;/li&gt;&lt;/ol&gt;&lt;ol style=&quot;scrollbar-color: var(--vscode-scrollbarSlider-background,#424242) var(--vscode-editor-background,#1e1e1e); margin: 0px 0px 0px 16px; padding: 0px;&quot;&gt;&lt;li style=&quot;scrollbar-color: var(--vscode-scrollbarSlider-background,#424242) var(--vscode-editor-background,#1e1e1e); margin-left: 0px; padding-top: 2px; padding-bottom: 2px; list-style-type: decimal; margin-bottom: 2px !important; margin-top: 2px !important;&quot; value=&quot;6&quot; data-indent=&quot;0&quot;&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;&lt;span style=&quot;scrollbar-color: var(--vscode-scrollbarSlider-background,#424242) var(--vscode-editor-background,#1e1e1e); font-weight: 600;&quot; class=&quot;markdown-bold-text&quot;&gt;Client&lt;/span&gt;&lt;span style=&quot;scrollbar-color: var(--vscode-scrollbarSlider-background,#424242) var(--vscode-editor-background,#1e1e1e);&quot;&gt;&amp;nbsp;receives the created ticket as a response&lt;/span&gt;&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/section&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="-710" y="100" width="485" height="470" as="geometry" />
+        </mxCell>
+        <mxCell id="JI-kJ0MNj-MwxjxUuRtc-36" value="" style="curved=1;endArrow=classic;html=1;rounded=0;strokeColor=#FF00FF;strokeWidth=2;endSize=15;" edge="1" parent="1" source="JI-kJ0MNj-MwxjxUuRtc-5">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="690" y="440" as="sourcePoint" />
+            <mxPoint x="810" y="580" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="810" y="290" />
+              <mxPoint x="880" y="340" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JI-kJ0MNj-MwxjxUuRtc-38" value="" style="curved=1;endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="830" y="179.86" as="sourcePoint" />
+            <mxPoint x="940" y="484.86" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="940" y="194.86" />
+              <mxPoint x="1010" y="244.86" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JI-kJ0MNj-MwxjxUuRtc-39" value="" style="curved=1;endArrow=classic;html=1;rounded=0;exitX=0.306;exitY=0.946;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.65;entryY=0.018;entryDx=0;entryDy=0;entryPerimeter=0;strokeColor=#CCCC00;strokeWidth=2;endSize=15;" edge="1" parent="1" source="JI-kJ0MNj-MwxjxUuRtc-4" target="JI-kJ0MNj-MwxjxUuRtc-14">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="555" y="360" as="sourcePoint" />
+            <mxPoint x="665" y="665" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="665" y="375" />
+              <mxPoint x="665" y="420" />
+              <mxPoint x="630" y="580" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JI-kJ0MNj-MwxjxUuRtc-40" value="" style="curved=1;endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#80FF00;strokeWidth=2;endSize=15;" edge="1" parent="1" source="JI-kJ0MNj-MwxjxUuRtc-13" target="JI-kJ0MNj-MwxjxUuRtc-14">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="420" as="sourcePoint" />
+            <mxPoint x="510" y="725" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="480" y="590" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JI-kJ0MNj-MwxjxUuRtc-41" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=0.709;entryY=-0.017;entryDx=0;entryDy=0;entryPerimeter=0;strokeColor=#CCCC00;strokeWidth=2;endSize=15;" edge="1" parent="1" source="JI-kJ0MNj-MwxjxUuRtc-5" target="JI-kJ0MNj-MwxjxUuRtc-13">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="535" y="280" />
+              <mxPoint x="417" y="280" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JI-kJ0MNj-MwxjxUuRtc-42" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.442;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;strokeWidth=2;endSize=15;" edge="1" parent="1" source="JI-kJ0MNj-MwxjxUuRtc-21" target="JI-kJ0MNj-MwxjxUuRtc-13">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="373" y="267" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JI-kJ0MNj-MwxjxUuRtc-44" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.306;entryY=-0.033;entryDx=0;entryDy=0;entryPerimeter=0;strokeColor=#B266FF;strokeWidth=2;endSize=15;" edge="1" parent="1" source="JI-kJ0MNj-MwxjxUuRtc-2" target="JI-kJ0MNj-MwxjxUuRtc-10">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="90" y="370" />
+              <mxPoint x="89" y="370" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JI-kJ0MNj-MwxjxUuRtc-46" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.463;entryY=0.933;entryDx=0;entryDy=0;entryPerimeter=0;strokeColor=#FF00FF;strokeWidth=2;endSize=15;" edge="1" parent="1" source="JI-kJ0MNj-MwxjxUuRtc-15" target="JI-kJ0MNj-MwxjxUuRtc-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JI-kJ0MNj-MwxjxUuRtc-47" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.158;entryY=0.017;entryDx=0;entryDy=0;entryPerimeter=0;strokeColor=#80FF00;strokeWidth=2;endSize=15;" edge="1" parent="1" source="JI-kJ0MNj-MwxjxUuRtc-2" target="JI-kJ0MNj-MwxjxUuRtc-13">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="180" y="360" />
+              <mxPoint x="326" y="360" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
