@@ -232,7 +232,7 @@ function App() {
 
       {/* Header with 3D Animation and Dark Mode Toggle */}
       <div className="header">
-        <h1>✈️ Flight Ticket Manager</h1>
+        <h1>✈️ {t("app.title", "Flight Ticket Manager")}</h1>
         <div
           style={{
             display: "flex",
@@ -594,7 +594,7 @@ function App() {
                         onClick={() => startEdit(ticket)}
                         style={{ flex: 1, fontSize: "14px" }}
                       >
-                        ✏️ Edit
+                        ✏️ {t("edit", "Edit")}
                       </button>
                       <button
                         type="button"
@@ -607,7 +607,7 @@ function App() {
                             "linear-gradient(135deg, rgba(255,100,100,0.3) 0%, rgba(255,100,100,0.2) 100%)",
                         }}
                       >
-                        🗑️ Delete
+                        🗑️ {t("delete", "Delete")}
                       </button>
                     </div>
                   </div>
