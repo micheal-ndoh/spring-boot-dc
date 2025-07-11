@@ -1,7 +1,9 @@
 import logo from "./logo.svg";
 import "./App.css";
+import "./i18n"; // Import i18n configuration
 
 import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { TicketControllerApi, Configuration } from "./react-api-client";
 
 // Get API URL from runtime config or fallback
@@ -13,6 +15,7 @@ const api = new TicketControllerApi(
 );
 
 function App() {
+  const { t, i18n } = useTranslation();
   const [tickets, setTickets] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [editingTicket, setEditingTicket] = useState<any>(null);
@@ -23,6 +26,7 @@ function App() {
     null
   );
   const [darkMode, setDarkMode] = useState(false);
+  const [currentLanguage, setCurrentLanguage] = useState("en");
   const [searchForm, setSearchForm] = useState({
     address: "",
     destinationAddress: "",
@@ -48,6 +52,11 @@ function App() {
       document.body.classList.remove("dark-mode");
     }
   }, [darkMode]);
+
+  const changeLanguage = (lng: string) => {
+    i18n.changeLanguage(lng);
+    setCurrentLanguage(lng);
+  };
 
   const loadTickets = async () => {
     try {
@@ -199,346 +208,306 @@ function App() {
 
       {/* Header with 3D Animation and Dark Mode Toggle */}
       <div className="header">
-        <h1>✈️ Flight Ticket Manager</h1>
-        <button
-          className={`dark-mode-toggle ${darkMode ? "active" : ""}`}
-          onClick={toggleDarkMode}
-          title={darkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
-        >
-          <div className="toggle-icon">
-            <div className="sun-icon">☀️</div>
-            <div className="moon-icon">🌙</div>
+        <div className="header-content">
+          <h1 className="title">✈️ Flight Ticket Booking</h1>
+          <div className="header-controls">
+            {/* Language Selector */}
+            <div className="language-selector">
+              <button
+                className={`lang-btn ${
+                  currentLanguage === "en" ? "active" : ""
+                }`}
+                onClick={() => changeLanguage("en")}
+              >
+                🇺🇸 EN
+              </button>
+              <button
+                className={`lang-btn ${
+                  currentLanguage === "fr" ? "active" : ""
+                }`}
+                onClick={() => changeLanguage("fr")}
+              >
+                🇫🇷 FR
+              </button>
+              <button
+                className={`lang-btn ${
+                  currentLanguage === "es" ? "active" : ""
+                }`}
+                onClick={() => changeLanguage("es")}
+              >
+                🇪🇸 ES
+              </button>
+            </div>
+
+            {/* Dark Mode Toggle */}
+            <button className="dark-mode-toggle" onClick={toggleDarkMode}>
+              <div className="toggle-slider">
+                <div className="toggle-icon">🌙</div>
+                <div className="toggle-icon">☀️</div>
+              </div>
+            </button>
           </div>
-          <div className="toggle-slider"></div>
-          <div className="toggle-glow"></div>
-        </button>
+        </div>
       </div>
 
-      {/* Search Form */}
-      <div className="form-container">
-        <h2>🔍 Search Tickets</h2>
-        <form onSubmit={handleSearch}>
-          <div className="form-grid">
-            <div className="form-input">
+      {/* Main Content */}
+      <div className="main-content">
+        {/* Search Section */}
+        <div className="search-section">
+          <h2>{t("search.title", "Search Tickets")}</h2>
+          <form onSubmit={handleSearch} className="search-form">
+            <div className="form-row">
               <input
+                type="text"
                 name="address"
-                placeholder="Search by Address"
+                placeholder={t("label.address", "Address")}
                 value={searchForm.address}
                 onChange={handleSearchChange}
+                className="form-input"
               />
-            </div>
-            <div className="form-input">
               <input
+                type="text"
                 name="destinationAddress"
-                placeholder="Search by Destination"
+                placeholder={t(
+                  "label.destination.address",
+                  "Destination Address"
+                )}
                 value={searchForm.destinationAddress}
                 onChange={handleSearchChange}
+                className="form-input"
               />
-            </div>
-            <div className="form-input">
               <input
+                type="text"
                 name="kickoffAddress"
-                placeholder="Search by Kickoff"
+                placeholder={t("label.kickoff.address", "Kickoff Address")}
                 value={searchForm.kickoffAddress}
                 onChange={handleSearchChange}
+                className="form-input"
               />
             </div>
-          </div>
-          <div style={{ display: "flex", gap: "10px" }}>
-            <button type="submit" className="submit-btn">
-              🔍 Search
+            <button type="submit" className="search-btn">
+              🔍 {t("search.button", "Search")}
             </button>
-            <button
-              type="button"
-              className="submit-btn"
-              onClick={loadTickets}
-              style={{
-                background:
-                  "linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.2) 100%)",
-              }}
-            >
-              🔄 Reset
-            </button>
-          </div>
-        </form>
-      </div>
+          </form>
+        </div>
 
-      {/* Ticket Creation Form */}
-      <div className="form-container">
-        <h2>🎫 Create New Ticket</h2>
-        <form onSubmit={handleSubmit}>
-          <div className="form-grid">
-            <div className="form-input">
+        {/* Create Ticket Section */}
+        <div className="create-section">
+          <h2>{t("create.title", "Create New Ticket")}</h2>
+          <form onSubmit={handleSubmit} className="create-form">
+            <div className="form-row">
               <input
+                type="text"
                 name="passengerName"
-                placeholder="Passenger Name"
+                placeholder={t("label.passenger.name", "Passenger Name")}
                 value={form.passengerName}
                 onChange={handleChange}
+                className="form-input"
                 required
               />
-            </div>
-            <div className="form-input">
               <input
+                type="text"
                 name="address"
-                placeholder="Address"
+                placeholder={t("label.address", "Address")}
                 value={form.address}
                 onChange={handleChange}
+                className="form-input"
                 required
               />
             </div>
-            <div className="form-input">
+            <div className="form-row">
               <input
+                type="text"
                 name="destinationAddress"
-                placeholder="Destination Address"
+                placeholder={t(
+                  "label.destination.address",
+                  "Destination Address"
+                )}
                 value={form.destinationAddress}
                 onChange={handleChange}
+                className="form-input"
                 required
               />
-            </div>
-            <div className="form-input">
               <input
+                type="text"
                 name="kickoffAddress"
-                placeholder="Kickoff Address"
+                placeholder={t("label.kickoff.address", "Kickoff Address")}
                 value={form.kickoffAddress}
                 onChange={handleChange}
+                className="form-input"
                 required
               />
             </div>
-            <div className="form-input">
+            <div className="form-row">
               <input
-                name="flightDate"
                 type="date"
-                placeholder="Flight Date"
+                name="flightDate"
                 value={form.flightDate}
                 onChange={handleChange}
+                className="form-input"
                 required
               />
+              <button type="submit" className="create-btn">
+                ✈️ {t("create.button", "Create Ticket")}
+              </button>
             </div>
-          </div>
-          <button type="submit" className="submit-btn">
-            Create Ticket
-          </button>
-        </form>
-      </div>
+          </form>
+        </div>
 
-      {/* Tickets Display */}
-      <div className="tickets-container">
-        <h2>📋 All Tickets</h2>
-        {loading ? (
-          <div className="loading">🔄 Loading tickets...</div>
-        ) : tickets.length === 0 ? (
-          <div className="empty-state">
-            🎫 No tickets found. Create your first ticket above!
-          </div>
-        ) : (
-          <div className="tickets-grid">
-            {tickets.map((ticket) => (
-              <div key={ticket.id} className="ticket-card">
-                {editingTicket?.id === ticket.id ? (
-                  // Edit Mode
-                  <div className="ticket-info">
-                    <div className="form-input">
-                      <input
-                        name="passengerName"
-                        placeholder="Passenger Name"
-                        value={editingTicket.passengerName}
-                        onChange={handleEditChange}
-                        required
-                      />
-                    </div>
-                    <div className="form-input">
-                      <input
-                        name="address"
-                        placeholder="Address"
-                        value={editingTicket.address}
-                        onChange={handleEditChange}
-                        required
-                      />
-                    </div>
-                    <div className="form-input">
-                      <input
-                        name="destinationAddress"
-                        placeholder="Destination Address"
-                        value={editingTicket.destinationAddress}
-                        onChange={handleEditChange}
-                        required
-                      />
-                    </div>
-                    <div className="form-input">
-                      <input
-                        name="kickoffAddress"
-                        placeholder="Kickoff Address"
-                        value={editingTicket.kickoffAddress}
-                        onChange={handleEditChange}
-                        required
-                      />
-                    </div>
-                    <div className="form-input">
-                      <input
-                        name="flightDate"
-                        type="date"
-                        value={editingTicket.flightDate}
-                        onChange={handleEditChange}
-                        required
-                      />
-                    </div>
-                    <div
-                      style={{
-                        display: "flex",
-                        gap: "10px",
-                        marginTop: "15px",
-                      }}
-                    >
+        {/* Tickets List */}
+        <div className="tickets-section">
+          <h2>{t("tickets.title", "All Tickets")}</h2>
+          {loading ? (
+            <div className="loading">🔄 {t("loading", "Loading...")}</div>
+          ) : (
+            <div className="tickets-grid">
+              {tickets.map((ticket) => (
+                <div key={ticket.id} className="ticket-card">
+                  <div className="ticket-header">
+                    <h3>{ticket.passengerName}</h3>
+                    <div className="ticket-actions">
                       <button
-                        type="button"
-                        className="submit-btn"
-                        onClick={() => confirmUpdate(ticket.id)}
-                        style={{ flex: 1 }}
-                      >
-                        ✅ Save
-                      </button>
-                      <button
-                        type="button"
-                        className="submit-btn"
-                        onClick={cancelEdit}
-                        style={{
-                          flex: 1,
-                          background:
-                            "linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.2) 100%)",
-                        }}
-                      >
-                        ❌ Cancel
-                      </button>
-                    </div>
-                  </div>
-                ) : (
-                  // View Mode
-                  <div className="ticket-info">
-                    <div className="ticket-field">
-                      <span className="ticket-label">Passenger:</span>
-                      <span className="ticket-value">
-                        {ticket.passengerName}
-                      </span>
-                    </div>
-                    <div className="ticket-field">
-                      <span className="ticket-label">Address:</span>
-                      <span className="ticket-value">{ticket.address}</span>
-                    </div>
-                    <div className="ticket-field">
-                      <span className="ticket-label">Destination:</span>
-                      <span className="ticket-value">
-                        {ticket.destinationAddress}
-                      </span>
-                    </div>
-                    <div className="ticket-field">
-                      <span className="ticket-label">Kickoff:</span>
-                      <span className="ticket-value">
-                        {ticket.kickoffAddress}
-                      </span>
-                    </div>
-                    <div className="ticket-field">
-                      <span className="ticket-label">Flight Date:</span>
-                      <span className="ticket-value">
-                        {formatDate(ticket.flightDate)}
-                      </span>
-                    </div>
-                    <div
-                      style={{
-                        display: "flex",
-                        gap: "10px",
-                        marginTop: "15px",
-                      }}
-                    >
-                      <button
-                        type="button"
-                        className="submit-btn"
                         onClick={() => startEdit(ticket)}
-                        style={{ flex: 1, fontSize: "14px" }}
+                        className="edit-btn"
                       >
-                        ✏️ Edit
+                        ✏️ {t("edit", "Edit")}
                       </button>
                       <button
-                        type="button"
-                        className="submit-btn"
                         onClick={() => confirmDelete(ticket.id)}
-                        style={{
-                          flex: 1,
-                          fontSize: "14px",
-                          background:
-                            "linear-gradient(135deg, rgba(255,100,100,0.3) 0%, rgba(255,100,100,0.2) 100%)",
-                        }}
+                        className="delete-btn"
                       >
-                        🗑️ Delete
+                        🗑️ {t("delete", "Delete")}
                       </button>
                     </div>
                   </div>
-                )}
-              </div>
-            ))}
-          </div>
-        )}
+                  <div className="ticket-details">
+                    <p>
+                      <strong>{t("label.address", "Address")}:</strong>{" "}
+                      {ticket.address}
+                    </p>
+                    <p>
+                      <strong>
+                        {t("label.destination.address", "Destination")}:
+                      </strong>{" "}
+                      {ticket.destinationAddress}
+                    </p>
+                    <p>
+                      <strong>{t("label.kickoff.address", "Kickoff")}:</strong>{" "}
+                      {ticket.kickoffAddress}
+                    </p>
+                    <p>
+                      <strong>{t("label.flight.date", "Flight Date")}:</strong>{" "}
+                      {formatDate(ticket.flightDate)}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
       </div>
 
-      {/* Confirmation Modals */}
-      {showUpdateConfirm && (
+      {/* Edit Modal */}
+      {editingTicket && (
         <div className="modal-overlay">
           <div className="modal">
-            <h3>Confirm Update</h3>
-            <p>Are you sure you want to update this ticket?</p>
-            <div style={{ display: "flex", gap: "10px", marginTop: "20px" }}>
-              <button
-                className="submit-btn"
-                onClick={handleUpdate}
-                style={{ flex: 1 }}
-              >
-                ✅ Confirm Update
-              </button>
-              <button
-                className="submit-btn"
-                onClick={() => setShowUpdateConfirm(null)}
-                style={{
-                  flex: 1,
-                  background:
-                    "linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.2) 100%)",
-                }}
-              >
-                ❌ Cancel
-              </button>
-            </div>
+            <h3>{t("edit.title", "Edit Ticket")}</h3>
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                handleUpdate();
+              }}
+            >
+              <div className="form-row">
+                <input
+                  type="text"
+                  name="passengerName"
+                  placeholder={t("label.passenger.name", "Passenger Name")}
+                  value={editingTicket.passengerName}
+                  onChange={handleEditChange}
+                  className="form-input"
+                  required
+                />
+                <input
+                  type="text"
+                  name="address"
+                  placeholder={t("label.address", "Address")}
+                  value={editingTicket.address}
+                  onChange={handleEditChange}
+                  className="form-input"
+                  required
+                />
+              </div>
+              <div className="form-row">
+                <input
+                  type="text"
+                  name="destinationAddress"
+                  placeholder={t(
+                    "label.destination.address",
+                    "Destination Address"
+                  )}
+                  value={editingTicket.destinationAddress}
+                  onChange={handleEditChange}
+                  className="form-input"
+                  required
+                />
+                <input
+                  type="text"
+                  name="kickoffAddress"
+                  placeholder={t("label.kickoff.address", "Kickoff Address")}
+                  value={editingTicket.kickoffAddress}
+                  onChange={handleEditChange}
+                  className="form-input"
+                  required
+                />
+              </div>
+              <div className="form-row">
+                <input
+                  type="date"
+                  name="flightDate"
+                  value={editingTicket.flightDate}
+                  onChange={handleEditChange}
+                  className="form-input"
+                  required
+                />
+              </div>
+              <div className="modal-actions">
+                <button type="submit" className="update-btn">
+                  ✅ {t("update", "Update")}
+                </button>
+                <button
+                  type="button"
+                  onClick={cancelEdit}
+                  className="cancel-btn"
+                >
+                  ❌ {t("cancel", "Cancel")}
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       )}
 
+      {/* Delete Confirmation Modal */}
       {showDeleteConfirm && (
         <div className="modal-overlay">
           <div className="modal">
-            <h3>Confirm Delete</h3>
+            <h3>{t("delete.confirm.title", "Confirm Delete")}</h3>
             <p>
-              Are you sure you want to delete this ticket? This action cannot be
-              undone.
+              {t(
+                "delete.confirm.message",
+                "Are you sure you want to delete this ticket?"
+              )}
             </p>
-            <div style={{ display: "flex", gap: "10px", marginTop: "20px" }}>
-              <button
-                className="submit-btn"
-                onClick={handleDelete}
-                style={{
-                  flex: 1,
-                  background:
-                    "linear-gradient(135deg, rgba(255,100,100,0.3) 0%, rgba(255,100,100,0.2) 100%)",
-                }}
-              >
-                🗑️ Confirm Delete
+            <div className="modal-actions">
+              <button onClick={handleDelete} className="delete-btn">
+                🗑️ {t("delete.confirm.yes", "Yes, Delete")}
               </button>
               <button
-                className="submit-btn"
                 onClick={() => setShowDeleteConfirm(null)}
-                style={{
-                  flex: 1,
-                  background:
-                    "linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.2) 100%)",
-                }}
+                className="cancel-btn"
               >
-                ❌ Cancel
+                ❌ {t("delete.confirm.no", "Cancel")}
               </button>
             </div>
           </div>
