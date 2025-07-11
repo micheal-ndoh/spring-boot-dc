@@ -209,9 +209,9 @@ function App() {
       {/* Header with 3D Animation and Dark Mode Toggle */}
       <div className="header">
         <div className="header-content">
-          <h1 className="title">✈️ Flight Ticket Booking</h1>
+          <h1 className="title">✈️ Flight Ticket Manager</h1>
           <div className="header-controls">
-            {/* Language Selector */}
+            {/* Language Selector - always visible */}
             <div className="language-selector">
               <button
                 className={`lang-btn ${
