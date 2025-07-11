@@ -4,6 +4,8 @@ import { initReactI18next } from 'react-i18next';
 const resources = {
     en: {
         translation: {
+            'app.title': 'Flight Ticket Manager',
+            'search.reset': 'Reset',
             'ticket.created': 'Ticket created successfully',
             'ticket.updated': 'Ticket updated successfully',
             'ticket.deleted': 'Ticket deleted successfully',
@@ -38,6 +40,8 @@ const resources = {
     },
     fr: {
         translation: {
+            'app.title': 'Gestionnaire de Billets d\'Avion',
+            'search.reset': 'Réinitialiser',
             'ticket.created': 'Billet créé avec succès',
             'ticket.updated': 'Billet mis à jour avec succès',
             'ticket.deleted': 'Billet supprimé avec succès',
@@ -72,6 +76,8 @@ const resources = {
     },
     es: {
         translation: {
+            'app.title': 'Gestor de Boletos de Vuelo',
+            'search.reset': 'Restablecer',
             'ticket.created': 'Boleto creado exitosamente',
             'ticket.updated': 'Boleto actualizado exitosamente',
             'ticket.deleted': 'Boleto eliminado exitosamente',
