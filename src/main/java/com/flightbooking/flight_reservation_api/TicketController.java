@@ -1,10 +1,13 @@
 package com.flightbooking.flight_reservation_api;
 
 import java.util.List;
+import java.util.Locale;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,12 +27,22 @@ public class TicketController {
     @Autowired
     private TicketRepository ticketRepository;
 
+    @Autowired
+    private MessageSource messageSource;
+
     @PostMapping
-    public Ticket createTicket(@RequestBody Ticket ticket) {
+    public ResponseEntity<?> createTicket(@RequestBody Ticket ticket, Locale locale) {
         logger.info("Creating ticket for passenger: {}", ticket.getPassengerName());
-        Ticket saved = ticketRepository.save(ticket);
-        logger.info("Ticket created with ID: {}", saved.getId());
-        return saved;
+        try {
+            Ticket saved = ticketRepository.save(ticket);
+            logger.info("Ticket created with ID: {}", saved.getId());
+            String message = messageSource.getMessage("ticket.created", null, locale);
+            return ResponseEntity.ok().body(new ApiResponse(true, message, saved));
+        } catch (Exception e) {
+            logger.error("Error creating ticket", e);
+            String message = messageSource.getMessage("ticket.error", null, locale);
+            return ResponseEntity.badRequest().body(new ApiResponse(false, message, null));
+        }
     }
 
     @GetMapping
