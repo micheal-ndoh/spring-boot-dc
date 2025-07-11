@@ -1,0 +1,1 @@
+window.REACT_APP_API_URL = "http://10.38.229.234:30080"; 

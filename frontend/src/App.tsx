@@ -4,8 +4,9 @@ import "./App.css";
 import React, { useEffect, useState } from "react";
 import { TicketControllerApi, Configuration } from "./react-api-client";
 
-// Get API URL from environment variable or use localhost for development
-const API_BASE_URL = process.env.REACT_APP_API_URL || "http://localhost:8080";
+// Get API URL from runtime config or fallback
+const API_BASE_URL =
+  (window as any).REACT_APP_API_URL || "http://10.38.229.234:30080";
 
 const api = new TicketControllerApi(
   new Configuration({ basePath: API_BASE_URL })
