@@ -238,7 +238,6 @@ function App() {
                 🇪🇸 ES
               </button>
             </div>
-
             {/* Dark Mode Toggle */}
             <button className="dark-mode-toggle" onClick={toggleDarkMode}>
               <div className="toggle-slider">
