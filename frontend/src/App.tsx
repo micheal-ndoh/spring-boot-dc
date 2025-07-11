@@ -335,13 +335,13 @@ function App() {
 
       {/* Search Form */}
       <div className="form-container">
-        <h2>🔍 Search Tickets</h2>
+        <h2>{t("search.title", "Search Tickets")}</h2>
         <form onSubmit={handleSearch}>
           <div className="form-grid">
             <div className="form-input">
               <input
                 name="address"
-                placeholder="Search by Address"
+                placeholder={t("label.address", "Search by Address")}
                 value={searchForm.address}
                 onChange={handleSearchChange}
               />
@@ -349,7 +349,10 @@ function App() {
             <div className="form-input">
               <input
                 name="destinationAddress"
-                placeholder="Search by Destination"
+                placeholder={t(
+                  "label.destination.address",
+                  "Search by Destination"
+                )}
                 value={searchForm.destinationAddress}
                 onChange={handleSearchChange}
               />
@@ -357,7 +360,7 @@ function App() {
             <div className="form-input">
               <input
                 name="kickoffAddress"
-                placeholder="Search by Kickoff"
+                placeholder={t("label.kickoff.address", "Search by Kickoff")}
                 value={searchForm.kickoffAddress}
                 onChange={handleSearchChange}
               />
@@ -365,7 +368,7 @@ function App() {
           </div>
           <div style={{ display: "flex", gap: "10px" }}>
             <button type="submit" className="submit-btn">
-              🔍 Search
+              🔍 {t("search.button", "Search")}
             </button>
             <button
               type="button"
@@ -376,7 +379,7 @@ function App() {
                   "linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.2) 100%)",
               }}
             >
-              🔄 Reset
+              🔄 {t("search.reset", "Reset")}
             </button>
           </div>
         </form>
@@ -384,13 +387,13 @@ function App() {
 
       {/* Ticket Creation Form */}
       <div className="form-container">
-        <h2>🎫 Create New Ticket</h2>
+        <h2>{t("create.title", "Create New Ticket")}</h2>
         <form onSubmit={handleSubmit}>
           <div className="form-grid">
             <div className="form-input">
               <input
                 name="passengerName"
-                placeholder="Passenger Name"
+                placeholder={t("label.passenger.name", "Passenger Name")}
                 value={form.passengerName}
                 onChange={handleChange}
                 required
@@ -399,7 +402,7 @@ function App() {
             <div className="form-input">
               <input
                 name="address"
-                placeholder="Address"
+                placeholder={t("label.address", "Address")}
                 value={form.address}
                 onChange={handleChange}
                 required
@@ -408,7 +411,10 @@ function App() {
             <div className="form-input">
               <input
                 name="destinationAddress"
-                placeholder="Destination Address"
+                placeholder={t(
+                  "label.destination.address",
+                  "Destination Address"
+                )}
                 value={form.destinationAddress}
                 onChange={handleChange}
                 required
@@ -417,7 +423,7 @@ function App() {
             <div className="form-input">
               <input
                 name="kickoffAddress"
-                placeholder="Kickoff Address"
+                placeholder={t("label.kickoff.address", "Kickoff Address")}
                 value={form.kickoffAddress}
                 onChange={handleChange}
                 required
@@ -427,7 +433,7 @@ function App() {
               <input
                 name="flightDate"
                 type="date"
-                placeholder="Flight Date"
+                placeholder={t("label.flight.date", "Flight Date")}
                 value={form.flightDate}
                 onChange={handleChange}
                 required
@@ -435,19 +441,23 @@ function App() {
             </div>
           </div>
           <button type="submit" className="submit-btn">
-            Create Ticket
+            {t("create.button", "Create Ticket")}
           </button>
         </form>
       </div>
 
       {/* Tickets Display */}
       <div className="tickets-container">
-        <h2>📋 All Tickets</h2>
+        <h2>{t("tickets.title", "All Tickets")}</h2>
         {loading ? (
-          <div className="loading">🔄 Loading tickets...</div>
+          <div className="loading">🔄 {t("loading", "Loading tickets...")}</div>
         ) : tickets.length === 0 ? (
           <div className="empty-state">
-            🎫 No tickets found. Create your first ticket above!
+            🎫{" "}
+            {t(
+              "tickets.empty",
+              "No tickets found. Create your first ticket above!"
+            )}
           </div>
         ) : (
           <div className="tickets-grid">
@@ -534,29 +544,39 @@ function App() {
                   // View Mode
                   <div className="ticket-info">
                     <div className="ticket-field">
-                      <span className="ticket-label">Passenger:</span>
+                      <span className="ticket-label">
+                        {t("label.passenger.name", "Passenger:")}
+                      </span>
                       <span className="ticket-value">
                         {ticket.passengerName}
                       </span>
                     </div>
                     <div className="ticket-field">
-                      <span className="ticket-label">Address:</span>
+                      <span className="ticket-label">
+                        {t("label.address", "Address:")}
+                      </span>
                       <span className="ticket-value">{ticket.address}</span>
                     </div>
                     <div className="ticket-field">
-                      <span className="ticket-label">Destination:</span>
+                      <span className="ticket-label">
+                        {t("label.destination.address", "Destination:")}
+                      </span>
                       <span className="ticket-value">
                         {ticket.destinationAddress}
                       </span>
                     </div>
                     <div className="ticket-field">
-                      <span className="ticket-label">Kickoff:</span>
+                      <span className="ticket-label">
+                        {t("label.kickoff.address", "Kickoff:")}
+                      </span>
                       <span className="ticket-value">
                         {ticket.kickoffAddress}
                       </span>
                     </div>
                     <div className="ticket-field">
-                      <span className="ticket-label">Flight Date:</span>
+                      <span className="ticket-label">
+                        {t("label.flight.date", "Flight Date:")}
+                      </span>
                       <span className="ticket-value">
                         {formatDate(ticket.flightDate)}
                       </span>
@@ -602,15 +622,20 @@ function App() {
       {showUpdateConfirm && (
         <div className="modal-overlay">
           <div className="modal">
-            <h3>Confirm Update</h3>
-            <p>Are you sure you want to update this ticket?</p>
+            <h3>{t("edit.confirm.title", "Confirm Update")}</h3>
+            <p>
+              {t(
+                "edit.confirm.message",
+                "Are you sure you want to update this ticket?"
+              )}
+            </p>
             <div style={{ display: "flex", gap: "10px", marginTop: "20px" }}>
               <button
                 className="submit-btn"
                 onClick={handleUpdate}
                 style={{ flex: 1 }}
               >
-                ✅ Confirm Update
+                ✅ {t("update", "Update")}
               </button>
               <button
                 className="submit-btn"
@@ -621,7 +646,7 @@ function App() {
                     "linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.2) 100%)",
                 }}
               >
-                ❌ Cancel
+                ❌ {t("cancel", "Cancel")}
               </button>
             </div>
           </div>
@@ -631,10 +656,12 @@ function App() {
       {showDeleteConfirm && (
         <div className="modal-overlay">
           <div className="modal">
-            <h3>Confirm Delete</h3>
+            <h3>{t("delete.confirm.title", "Confirm Delete")}</h3>
             <p>
-              Are you sure you want to delete this ticket? This action cannot be
-              undone.
+              {t(
+                "delete.confirm.message",
+                "Are you sure you want to delete this ticket? This action cannot be undone."
+              )}
             </p>
             <div style={{ display: "flex", gap: "10px", marginTop: "20px" }}>
               <button
@@ -646,7 +673,7 @@ function App() {
                     "linear-gradient(135deg, rgba(255,100,100,0.3) 0%, rgba(255,100,100,0.2) 100%)",
                 }}
               >
-                🗑️ Confirm Delete
+                🗑️ {t("delete.confirm.yes", "Confirm Delete")}
               </button>
               <button
                 className="submit-btn"
@@ -657,7 +684,7 @@ function App() {
                     "linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.2) 100%)",
                 }}
               >
-                ❌ Cancel
+                ❌ {t("delete.confirm.no", "Cancel")}
               </button>
             </div>
           </div>
